@@ -2,9 +2,8 @@
 @using ObserveQueryParametersBlazor.Shared
 @inject HttpClient Http
 
-<PageTitle>Weather forecast</PageTitle>
-
-<h1>Weather forecast</h1>
+<PageTitle>@ObserveQueryParametersBlazor.Client.Translations.Translations.FetchData</PageTitle>
+<h1>@ObserveQueryParametersBlazor.Client.Translations.Translations.FetchData</h1>
 
 <p>This component demonstrates fetching data from the server.</p>
 
@@ -37,6 +36,8 @@ else
     </table>
 }
 
+<p>Language: @Language</p>
+
 @code {
     private WeatherForecast[]? forecasts;
 
@@ -44,4 +45,8 @@ else
     {
         forecasts = await Http.GetFromJsonAsync<WeatherForecast[]>("WeatherForecast");
     }
+
+    [Parameter]
+    [SupplyParameterFromQuery(Name = "lang")]
+    public string Language { get; set; }
 }

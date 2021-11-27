@@ -1,12 +1,13 @@
 ﻿@page "/counter"
 
-<PageTitle>Counter</PageTitle>
-
-<h1>Counter</h1>
+<PageTitle>@ObserveQueryParametersBlazor.Client.Translations.Translations.Counter</PageTitle>
+<h1>@ObserveQueryParametersBlazor.Client.Translations.Translations.Counter</h1>
 
 <p role="status">Current count: @currentCount</p>
 
 <button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+
+<p>Language: @Language</p>
 
 @code {
     private int currentCount = 0;
@@ -15,4 +16,8 @@
     {
         currentCount++;
     }
+
+    [Parameter]
+    [SupplyParameterFromQuery(Name = "lang")]
+    public string Language { get; set; }
 }

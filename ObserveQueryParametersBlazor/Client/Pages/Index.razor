@@ -1,28 +1,16 @@
 ﻿@page "/"
 
-<PageTitle>Index</PageTitle>
-
-<h1>Hello, world!</h1>
-
-Welcome to your new app.
+<PageTitle>@ObserveQueryParametersBlazor.Client.Translations.Translations.Welcome</PageTitle>
+<h1>@ObserveQueryParametersBlazor.Client.Translations.Translations.Welcome</h1>
 
 <SurveyPrompt Title="How is Blazor working for you?" />
 
-<p>@Language</p>
+<p>Language: @Language</p>
 
 @code {
     
-    private string language;
     [Parameter]
     [SupplyParameterFromQuery(Name = "lang")]
-    public string Language
-    {
-        get => language;
-        set
-        {
-            Console.WriteLine("Set language (App)");
-            language = value;
-        }
-    }
+    public string Language { get; set; }
 
 }
