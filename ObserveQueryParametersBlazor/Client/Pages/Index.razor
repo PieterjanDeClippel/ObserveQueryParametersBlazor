@@ -7,3 +7,22 @@
 Welcome to your new app.
 
 <SurveyPrompt Title="How is Blazor working for you?" />
+
+<p>@Language</p>
+
+@code {
+    
+    private string language;
+    [Parameter]
+    [SupplyParameterFromQuery(Name = "lang")]
+    public string Language
+    {
+        get => language;
+        set
+        {
+            Console.WriteLine("Set language (App)");
+            language = value;
+        }
+    }
+
+}

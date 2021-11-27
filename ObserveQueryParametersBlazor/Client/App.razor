@@ -10,3 +10,21 @@
         </LayoutView>
     </NotFound>
 </Router>
+<p>@Language</p>
+
+@code {
+    
+    private string language;
+    [Parameter]
+    [SupplyParameterFromQuery(Name = "lang")]
+    public string Language
+    {
+        get => language;
+        set
+        {
+            Console.WriteLine("Set language (App)");
+            language = value;
+        }
+    }
+
+}
